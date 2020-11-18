@@ -71,6 +71,7 @@ async function start() {
         server.log(['startup', 'info'], `📸 Finished module initialization`);
     }
     catch (error) {
+        /* eslint-disable no-console */
         // tslint:disable-next-line:no-console
         console.log(`['startup', 'error'], 👹 Error starting server: ${error.message}`);
     }

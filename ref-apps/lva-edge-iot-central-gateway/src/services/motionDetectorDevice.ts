@@ -20,11 +20,11 @@ interface IMotionInference {
     type: string;
     motion: {
         box: {
-            l: number,
-            t: number,
-            w: number,
-            h: number
-        }
+            l: number;
+            t: number;
+            w: number;
+            h: number;
+        };
     };
 }
 

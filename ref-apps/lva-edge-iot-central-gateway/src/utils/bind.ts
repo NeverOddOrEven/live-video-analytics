@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 // @ts-ignore
 // tslint:disable-next-line:ban-types
 export function bind<T extends Function>(target: object, propertyKey: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T> {

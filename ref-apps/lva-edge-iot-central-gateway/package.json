@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
     "tslint": "node ./node_modules/tslint/bin/tslint -p ./tsconfig.json",
+    "eslint": "node ./node_modules/eslint/bin/eslint ./src --ext .ts,.tsx",
     "build": "node ./node_modules/typescript/bin/tsc -p .",
     "dockerbuild": "node ./scripts/dockerBuild.js --docker-build",
     "dockerpush": "node ./scripts/dockerBuild.js --docker-push",
@@ -42,7 +43,15 @@
     "jest": "^26.1.0",
     "ts-jest": "^26.1.1",
     "tslint": "^5.20.1",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^30.7.8",
+    "eslint-plugin-prefer-arrow": "^1.2.2"
   },
   "jest": {
     "rootDir": "./src/",

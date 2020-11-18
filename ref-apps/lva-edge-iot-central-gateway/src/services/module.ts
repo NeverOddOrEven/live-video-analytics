@@ -1,5 +1,6 @@
 import { service, inject } from 'spryly';
 import { Server } from '@hapi/hapi';
+import { boomify } from '@hapi/boom';
 import { ConfigService } from './config';
 import { StorageService } from './storage';
 import { HealthState } from './health';
@@ -1176,10 +1177,10 @@ export class ModuleService {
             if (iotcApiResponse.res.statusCode < 200 || iotcApiResponse.res.statusCode > 299) {
                 this.server.log(['ModuleService', 'error'], `Response status code = ${iotcApiResponse.res.statusCode}`);
 
-                throw ({
-                    message: (iotcApiResponse.payload as any)?.message || iotcApiResponse.payload || 'An error occurred',
-                    statusCode: iotcApiResponse.res.statusCode
-                });
+                throw boomify(
+                    new Error((iotcApiResponse.payload as any)?.message || iotcApiResponse.payload || 'An error occurred'),
+                    { statusCode: iotcApiResponse.res.statusCode }
+                );
             }
 
             return iotcApiResponse;
